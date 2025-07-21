@@ -14,10 +14,11 @@ jobs:
       # For demonstration, I'll place it directly where you tried to use it.
 
       - name: Set secret as environment variable
-        run: echo "Setting secret..."
+        # run: echo "Setting secret..."
         env:
           SEC: ${{ secrets.SEC }} # Corrected line
         shell: bash # You can define shell for a specific step if needed
+        run: echo  "The secret value is"
 
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
@@ -30,7 +31,7 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
-      - name: Echo the secret
-        run: echo "The secret value is: $SEC" # Accessing the environment variable
+      # - name: Echo the secret
+        # run: echo "The secret value is: $SEC" # Accessing the environment variable
         # If you were to directly echo the secret (not recommended due to logs), it would be:
         # - run: echo "${{ secrets.SEC }}"
