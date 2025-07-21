@@ -17,8 +17,10 @@ jobs:
         # run: echo "Setting secret..."
         env:
           SEC: ${{ secrets.SEC1 }} # Corrected line
+          VAR1: ${{ vars.VAR1 }}
         shell: bash # You can define shell for a specific step if needed
-        run: echo  "The secret value is $SEC" 
+        run: echo  "The secret value is $SEC  $VAR1" 
+        # run: echo "the variable value is"
 
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
