@@ -4,6 +4,9 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
+    outputs:
+      output1: $
+      output2: $
     steps:
       # The shell and env declaration needs to be associated with a step
       # It's better to define environment variables directly within a 'step' or 'job' block.
@@ -40,3 +43,16 @@ jobs:
         # run: echo "The secret value is: $SEC" # Accessing the environment variable
         # If you were to directly echo the secret (not recommended due to logs), it would be:
         # - run: echo "${{ secrets.SEC }}"
+      - id: step1
+        run: echo "test=hello" >> "$GITHUB_OUTPUT"
+      - id: step2
+        run: echo "test=world" >> "$GITHUB_OUTPUT"
+  job1:
+    runs-on: ubuntu-latest
+    needs: Explore-GitHub-Actions
+    steps:
+      - name: configure the system
+        env:
+            OUTPUT1: $
+            OUTPUT2: $
+        run: echo "$OUTPUT1 $OUTPUT2"
