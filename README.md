@@ -1,1 +1,2 @@
 # testgit_actions
+[![GitHub Actions Demo](https://github.com/muchiking/testgit_actions/actions/workflows/github-actions.yml/badge.svg)](https://github.com/muchiking/testgit_actions/actions/workflows/github-actions.yml)
